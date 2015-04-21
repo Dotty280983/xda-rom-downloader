@@ -27,11 +27,20 @@ namespace cm12.i9300.downloader
 
     public class Downloader
     {
+        public const int CM12_PROJECTID = 6661; // deprecated
+        public const int CM12_1_PROJECTID = 8923;
+        public const string DOWNLOAD_URL_TEMPLATE = "http://forum.xda-developers.com/devdb/project/?id={0}#downloads"; 
         private const string CONTENT_LENGTH_HEADER = "Content-Length";
+        public int ProjectId { get; set; }
+
+        public Downloader()
+        {
+            ProjectId = CM12_1_PROJECTID;
+        }
 
         public CMDownload GetLatestDownload()
         {
-            var req = WebRequest.Create("http://forum.xda-developers.com/devdb/project/?id=6611#downloads");
+            var req = WebRequest.Create(String.Format(DOWNLOAD_URL_TEMPLATE, ProjectId));
             using (var stream = req.GetResponse().GetResponseStream())
             {
                 var doc = new HtmlDocument();

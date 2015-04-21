@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("cm12.i9300.downloader.tests")]
+[assembly: AssemblyTitle("xda-rom-downloader")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("cm12.i9300.downloader.tests")]
+[assembly: AssemblyProduct("xda-rom-downloader")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8264be2d-4b93-4057-8542-1fde4eea394c")]
+[assembly: Guid("46d59fe3-0239-4335-84d0-bd60760d0f78")]
 
 // Version information for an assembly consists of the following four values:
 //

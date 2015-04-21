@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cm12.i9300.downloader", "cm12.i9300.downloader\cm12.i9300.downloader.csproj", "{B17C552C-DB56-4F97-87A9-3AA07D7FCBAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xda.downloader", "xda.downloader\xda.downloader.csproj", "{B17C552C-DB56-4F97-87A9-3AA07D7FCBAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cm12.i9300.downloader.tests", "cm12.i9300.downloader.tests\cm12.i9300.downloader.tests.csproj", "{69D11C27-7A5F-48F7-815D-BCF567521380}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xda.downloader.tests", "xda.downloader.tests\xda.downloader.tests.csproj", "{69D11C27-7A5F-48F7-815D-BCF567521380}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cm12.i9300.UNOFFICIAL.downloader", "cm12.i9300.UNOFFICIAL.downloader\cm12.i9300.UNOFFICIAL.downloader.csproj", "{42B16DD3-326D-49E2-A3C3-CCD49561FFC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xda-rom-downloader", "xda-rom-downloader\xda-rom-downloader.csproj", "{42B16DD3-326D-49E2-A3C3-CCD49561FFC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
