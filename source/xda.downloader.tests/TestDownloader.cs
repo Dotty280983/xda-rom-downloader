@@ -14,7 +14,7 @@ namespace cm12.i9300.downloader.tests
         public void GetLatestDownloadUrl()
         {
             //---------------Set up test pack-------------------
-            var sut = new Downloader();
+            var sut = new XDADownloader();
             //---------------Assert Precondition----------------
 
             //---------------Execute Test ----------------------
@@ -28,7 +28,7 @@ namespace cm12.i9300.downloader.tests
         public void DownloadLatestTo()
         {
             //---------------Set up test pack-------------------
-            var sut = new Downloader();
+            var sut = new XDADownloader();
 
             //---------------Assert Precondition----------------
 
@@ -141,9 +141,9 @@ namespace cm12.i9300.downloader.tests
         }
 
 
-        private Downloader Create()
+        private XDADownloader Create()
         {
-            return new Downloader();
+            return new XDADownloader();
         }
     }
 }

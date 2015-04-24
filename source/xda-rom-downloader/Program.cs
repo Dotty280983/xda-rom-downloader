@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using cm12.i9300.downloader;
 using Fclp;
+using Fclp.Internals.Extensions;
 
 namespace xda.rom.downloader
 {
@@ -12,7 +14,7 @@ namespace xda.rom.downloader
         {
             var options = Parse(args);
             if (options == null)
-                return ExitWithError("Commandline parameter failure");
+                return ExitWithError("");
             var dstFolder = GetDestinationFolderFrom(options.OutputFolder);
             if (dstFolder == null)
                 return 1;
@@ -28,16 +30,28 @@ namespace xda.rom.downloader
                 .Required();
             parser.Setup(o => o.XdaProjectId)
                 .As('p', "project-id")
-                .SetDefault(Downloader.CM12_1_PROJECTID)
+                .SetDefault(XDADownloader.CM12_1_PROJECTID)
                 .WithDescription("XDA project id (get it from the forum download page url)");
+            parser.SetupHelp("h", "?", "-help")
+                .Callback(text => 
+                    {
+                        Console.WriteLine("XDA Rom downloader utility");
+                        Console.WriteLine(" usage: {0} [options]", Path.GetFileName(Assembly.GetExecutingAssembly().CodeBase));
+                        Console.WriteLine(text);
+                    });
 
             var result = parser.Parse(args);
+            if (result.HasErrors)
+            {
+                Console.WriteLine(result.ErrorText);
+                parser.HelpOption.ShowHelp(parser.Options);
+            }
             return result.HasErrors ? null : parser.Object;
         }
 
         private static int DownloadLatest(int projectId, string dstFolder)
         {
-            var downloader = new Downloader();
+            var downloader = new XDADownloader();
             try
             {
                 downloader.ProjectId = projectId;
