@@ -143,7 +143,7 @@ namespace cm12.i9300.downloader
                             haveRead += readBuf.Length;
                             writer.Write(readBuf, 0, readBuf.Length);
                             writer.Flush();
-                            ReportProgress(expectedSize, haveRead, started, totalSize, offset);
+                            ReportProgress(haveRead, started, totalSize, offset);
                         }
                     }
                 }
@@ -152,13 +152,15 @@ namespace cm12.i9300.downloader
 
         private const string BLANKLINE = "                                                ";
 
-        private void ReportProgress(long expectedSize, int haveRead, DateTime started, long totalSize, long offset)
+        private void ReportProgress(int haveRead, DateTime started, long totalSize, long offset)
         {
             var totalPerc = (haveRead + offset)*100M/totalSize;
             var dlTime = (decimal)(DateTime.Now - started).TotalSeconds;
-            var perc = haveRead*100M/expectedSize;
-            var rate = (haveRead/1024M)/dlTime;
-            var etaInSeconds = 100M*(dlTime/perc);
+            var rate = dlTime > 1 ? (haveRead/1024M)/dlTime : 0;
+
+            var totalDownloadTimeInSeconds = rate > 0 ? (totalSize / 1024M) / rate : 0;
+            var etaInSeconds = totalDownloadTimeInSeconds - dlTime;
+            
             Console.Write("\r{0}\r{1:0.0} % {2:0.0} Kb/s  ETA: {3}", BLANKLINE, totalPerc, rate, HumanTime((int)etaInSeconds));
         }
 
